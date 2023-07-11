@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,100;1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: center;
+    min-height:100vh;
+    background: #e3f2fd;
+}
+.wrapper{
+    /* width: 780px; */
+    border-radius: 20px;
+    padding: 35px 40px;
+    background: #141414;
+}
+.wrapper header{
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h2{
+    font-size: 1.6rem;
+}
+header .column{
+    display: flex;
+    align-items: center;
+}
+header .column span{
+    font-weight: 500;
+    margin-right: 15px;
+    font-size: 1.19rem;
+}
+.volum-slider input{
+    accent-color: #fff;
+    outline: none;
+}
+.keys-checkbox input{
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    appearance: none;
+    border-radius: 30px;
+    background: #4b4b4b;
+}
+.keys-checkbox input::before{
+    content: "";
+    height:20px;
+    width: 20px;
+    top: 50%;
+    background:#8c8c8c;
+    position: absolute;
+    border-radius: inherit;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+.keys-checkbox input:checked::before{
+    left: 35px;
+    background: #fff;
+}
+.piano-key{
+    display: flex;
+    margin-top: 40px;
+}
+.piano-key .key{
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    color: #a2a3a2;
+    text-transform: uppercase;
+}
+.piano-key .black{
+    width: 44px;
+    height: 140px;
+    z-index:2;
+    margin: 0 -22px 0 -22px;
+    border-radius: 0 0 5px 5px;
+    background: linear-gradient(#333 96% ,#333 4%);
+}
+.piano-key .black.active{
+    box-shadow: inset -5px 5px 10px rgba(255,255,255,0.1);
+    background: linear-gradient(to bottom , #000 0%, #434343 );
+}
+.piano-key .white{
+    width: 70px;
+    height: 230px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background: linear-gradient(#fff 96% ,#fff 4%);
+}
+.piano-key .white.active{
+    box-shadow: inset -5px 5px 20px rgba(0,0,0,0.2);
+    background: linear-gradient(to bottom , #fff 0%, #eee 100%);
+}
+.piano-key span{
+    position:absolute;
+    bottom: 20px;
+    width: 100%;
+    font-size: 1.13rem;
+    text-align: center;
+}
+.piano-key .key.hide span{
+    display: none;
+}
+@media screen and(max-width:815px){
+    .wrapper{
+        padding: 25px;
+    }
+    header{
+        flex-direction: column;
+    }
+    header :where(h2,.column){
+        margin-bottom: 13px;
+    }
+    .volum-slider input{
+        max-width: 100px;
+    }
+    .piano-key{
+        margin-top: 20px;
+    }
+    .piano-key .key:where(:nth-child(9),:nth-child(10)){
+        display: none;
+    }
+}
+@media screen and (max-width:615px){
+    .piano-key .key:nth-child(13),
+    .piano-key .key:nth-child(14),
+    .piano-key .key:nth-child(15),
+    .piano-key .key:nth-child(16),
+    .piano-key .key:nth-child(17){
+        display:none;
+    }
+    .piano-key .white{
+        width: 50px;
+    }
+}
